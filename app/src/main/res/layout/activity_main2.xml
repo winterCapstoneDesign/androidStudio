@@ -177,10 +177,7 @@
             <TableRow>
                 <Button
                     android:id="@+id/pass_clear"
-                    android:text="CLEAR"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"/>
+                    android:text="CLEAR" />
                 <Button
                     android:id="@+id/pass_btn0"
                     android:text="0"
