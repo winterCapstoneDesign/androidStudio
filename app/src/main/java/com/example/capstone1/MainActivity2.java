@@ -1,7 +1,5 @@
 package com.example.capstone1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +8,20 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
+
+import java.util.concurrent.Executor;
+
+
 public class MainActivity2 extends AppCompatActivity {
+    private Executor executor;
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
+
     private Button pass_btn0;
     private Button pass_btn1;
     private Button pass_btn2;
@@ -24,12 +35,15 @@ public class MainActivity2 extends AppCompatActivity {
     private Button pass_clear;
     private Button pass_enter;
 
+    private Button fingerPrint_btn;
+
     private EditText etPasscode1;
     private EditText etPasscode2;
     private EditText etPasscode3;
     private EditText etPasscode4;
 
     private String password;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +62,9 @@ public class MainActivity2 extends AppCompatActivity {
         pass_btn9 = findViewById(R.id.pass_btn9);
         pass_clear = findViewById(R.id.pass_clear);
         pass_enter = findViewById(R.id.pass_enter);
+
+        fingerPrint_btn = findViewById(R.id.fingerPrint_btn);
+        fingerPrint_btn.setOnClickListener(fingerBtnListener);
 
         etPasscode1 = findViewById(R.id.etPasscode1);
         etPasscode2 = findViewById(R.id.etPasscode2);
@@ -72,7 +89,43 @@ public class MainActivity2 extends AppCompatActivity {
             Button btn = (Button) button;
             btn.setOnClickListener(btnListener);
         }
+
+        executor = ContextCompat.getMainExecutor(this);
+        biometricPrompt = new BiometricPrompt(this,
+                executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+                Toast.makeText(getApplicationContext(), "오류가 발생했습니다.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                Toast.makeText(getApplicationContext(), "성공했습니다.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                Toast.makeText(getApplicationContext(), "실패했습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("지문 인증")
+                .setSubtitle("기기에 등록된 지문을 이용하여 지문을 인증해주세요.")
+                .setNegativeButtonText("취소")
+                .setDeviceCredentialAllowed(false)
+                .build();
     }
+
+    View.OnClickListener fingerBtnListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            biometricPrompt.authenticate(promptInfo);
+        }
+    };
 
     View.OnClickListener btnListener = new View.OnClickListener() {
         @Override
