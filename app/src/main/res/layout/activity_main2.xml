@@ -83,7 +83,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="538dp"
+        android:layout_height="578dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:orientation="vertical">
@@ -104,33 +104,33 @@
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="1"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
                 <Button
                     android:id="@+id/pass_btn2"
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="2"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
                 <Button
                     android:id="@+id/pass_btn3"
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="3"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </TableRow>
 
             <TableRow>
@@ -140,33 +140,33 @@
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="4"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
                 <Button
                     android:id="@+id/pass_btn5"
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="5"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
                 <Button
                     android:id="@+id/pass_btn6"
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="6"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </TableRow>
 
             <TableRow>
@@ -176,33 +176,33 @@
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="7"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
                 <Button
                     android:id="@+id/pass_btn8"
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="8"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
                 <Button
                     android:id="@+id/pass_btn9"
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="9"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
             </TableRow>
 
             <TableRow
@@ -211,42 +211,56 @@
 
                 <Button
                     android:id="@+id/pass_clear"
-                    android:text="CLEAR"
                     android:layout_margin="5dp"
                     android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:text="CLEAR"
+                    android:textColor="@color/black" />
 
                 <Button
                     android:id="@+id/pass_btn0"
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
+                    android:background="#E6E6FA"
                     android:gravity="center"
                     android:text="0"
-                    android:textSize="18dp"
-                    android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
 
                 <Button
                     android:id="@+id/pass_enter"
-                    android:text="ENTER"
                     android:layout_margin="5dp"
                     android:background="#E6E6FA"
-                    android:textColor="@color/black"/>
+                    android:text="ENTER"
+                    android:textColor="@color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="114dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/fingerPrint_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#F5F5DC"
+                    android:text="지문 인식"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/back_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F5F5DC"
+                    android:text="메인 화면"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
             </TableRow>
         </TableLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <Button
-            android:id="@+id/fingerPrint_btn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="지문 인식"
-            android:textSize="15dp"
-            android:background="#F5F5DC"
-            android:textColor="@color/black"/>
     </LinearLayout>
 </LinearLayout>
