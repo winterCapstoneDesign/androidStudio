@@ -30,7 +30,7 @@ import java.util.UUID;
 public class MainActivity extends AppCompatActivity {
 
     private Button btn_password;
-
+    private Button btn_otp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(intent); //실제 화면 이동
+            }
+        });
+
+        btn_otp = findViewById(R.id.button3);
+        btn_otp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
                 startActivity(intent); //실제 화면 이동
             }
         });
