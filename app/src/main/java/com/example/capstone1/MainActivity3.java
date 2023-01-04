@@ -27,6 +27,7 @@ public class MainActivity3 extends AppCompatActivity {
     private TextView otp_key;
     private EditText otp_input;
     private Button main_btn2;
+    private Button input_otp_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class MainActivity3 extends AppCompatActivity {
         otp_key = findViewById(R.id.otp_key);
         otp_input = findViewById(R.id.otp_input);
         main_btn2 = findViewById(R.id.main_btn2);
+        input_otp_btn = findViewById(R.id.input_otp_btn);
 
         main_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,13 +53,18 @@ public class MainActivity3 extends AppCompatActivity {
 
         otp_key.setText(otpkey);
 
-        boolean check = checkCode(otp_input.getText().toString(), otpkey);
-        if(check) {
-            Toast.makeText(getApplicationContext(), "도어락 키패드가 활성화됩니다.", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(getApplicationContext(), "otp 번호를 다시 입력해주세요!", Toast.LENGTH_SHORT).show();
-        }
+        input_otp_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean check = checkCode(otp_input.getText().toString(), otpkey); //EditText에 입력한 otp 코드와 생성된 otp 코드 비교
+                if(check) {
+                    Toast.makeText(getApplicationContext(), "도어락 키패드가 활성화됩니다.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "otp 번호를 다시 입력해주세요!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     public static HashMap<String, String> generate(String userName, String hostName) {
