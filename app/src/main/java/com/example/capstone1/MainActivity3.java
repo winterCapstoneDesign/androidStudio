@@ -49,6 +49,8 @@ public class MainActivity3 extends AppCompatActivity {
         String otpkey = map.get("encodedKey");
         String url = map.get("url");
 
+        otp_key.setText(otpkey);
+
         boolean check = checkCode(otp_input.getText().toString(), otpkey);
         if(check) {
             Toast.makeText(getApplicationContext(), "도어락 키패드가 활성화됩니다.", Toast.LENGTH_SHORT).show();
