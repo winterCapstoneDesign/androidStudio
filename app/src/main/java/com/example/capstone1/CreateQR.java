@@ -9,24 +9,36 @@ import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+
 public class CreateQR extends AppCompatActivity {
     private ImageView iv;
     private String text;
     private Button main_btn;
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = database.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_qr);
 
+        Intent intent = getIntent();
+
         iv = (ImageView)findViewById(R.id.qrcode);
-        text = "BaeSunYoung";
+        text = intent.getStringExtra("input_QR_user");
+        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
 
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try{
@@ -34,6 +46,11 @@ public class CreateQR extends AppCompatActivity {
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             iv.setImageBitmap(bitmap);
+
+            //파이어베이스로 QR 정보 전송
+            HashMap result = new HashMap<>();
+            result.put("QR",barcodeEncoder.toString());
+            databaseReference.child("QR_code").child(text).setValue(result);
         }catch (Exception e){}
 
         main_btn = findViewById(R.id.main_button);
