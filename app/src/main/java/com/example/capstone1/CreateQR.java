@@ -49,8 +49,9 @@ public class CreateQR extends AppCompatActivity {
 
             //파이어베이스로 QR 정보 전송
             HashMap result = new HashMap<>();
-            result.put("QR",barcodeEncoder.toString());
-            databaseReference.child("QR_code").child(text).setValue(result);
+            result.put("user" + Integer.toString(count.count),text);
+            count.count = count.count + 1;
+            databaseReference.child("QR_code").setValue(result);
         }catch (Exception e){}
 
         main_btn = findViewById(R.id.main_button);
