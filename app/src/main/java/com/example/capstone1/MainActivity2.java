@@ -10,10 +10,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.Executor;
 
@@ -22,6 +24,9 @@ public class MainActivity2 extends AppCompatActivity {
     private Executor executor;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
+
+    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference conditionRef = mRootRef.child("input_password");
 
     private Button pass_btn0;
     private Button pass_btn1;
@@ -204,7 +209,6 @@ public class MainActivity2 extends AppCompatActivity {
             }
 
             if(etPasscode1.length() != 0 && etPasscode2.length() != 0 && etPasscode3.length() != 0 && etPasscode4.length() != 0) {
-                Toast.makeText(getApplicationContext(), "비밀번호 입력 완료", Toast.LENGTH_SHORT).show();
                 password = etPasscode1.getText().toString() + etPasscode2.getText().toString() + etPasscode3.getText().toString() + etPasscode4.getText().toString();
             }
         }
@@ -228,7 +232,9 @@ public class MainActivity2 extends AppCompatActivity {
 //        }
 
         private void onEnter() {
-            //esp32로 비밀번호 전송
+            //파이어베이스로 비밀번호 전송
+            Toast.makeText(getApplicationContext(), "비밀번호 입력 완료", Toast.LENGTH_SHORT).show();
+            conditionRef.setValue(password);
         }
     };
 }
