@@ -1,5 +1,6 @@
 package com.example.capstone1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +37,7 @@ public class MainActivity2 extends AppCompatActivity {
     private Button pass_enter;
 
     private Button fingerPrint_btn;
+    private Button back_btn;
 
     private EditText etPasscode1;
     private EditText etPasscode2;
@@ -65,6 +67,15 @@ public class MainActivity2 extends AppCompatActivity {
 
         fingerPrint_btn = findViewById(R.id.fingerPrint_btn);
         fingerPrint_btn.setOnClickListener(fingerBtnListener);
+
+        back_btn = findViewById(R.id.back_btn);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                startActivity(intent); //실제 화면 이동
+            }
+        });
 
         etPasscode1 = findViewById(R.id.etPasscode1);
         etPasscode2 = findViewById(R.id.etPasscode2);
