@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btn_password;
     private Button btn_otp;
+    private Button btn_QR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                startActivity(intent); //실제 화면 이동
+            }
+        });
+
+        btn_QR = findViewById(R.id.button4);
+        btn_QR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity4.class);
                 startActivity(intent); //실제 화면 이동
             }
         });
