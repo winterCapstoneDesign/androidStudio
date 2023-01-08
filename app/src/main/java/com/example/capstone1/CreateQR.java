@@ -48,10 +48,9 @@ public class CreateQR extends AppCompatActivity {
             iv.setImageBitmap(bitmap);
 
             //파이어베이스로 QR 정보 전송
-            HashMap result = new HashMap<>();
-            result.put("user" + Integer.toString(count.count),text);
+            String user = "user" + Integer.toString(count.count);
             count.count = count.count + 1;
-            databaseReference.child("QR_code").setValue(result);
+            databaseReference.child("QR_code").child(user).setValue(text);
         }catch (Exception e){}
 
         main_btn = findViewById(R.id.main_button);

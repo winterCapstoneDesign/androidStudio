@@ -23,11 +23,17 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base32;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity3 extends AppCompatActivity {
     private TextView otp_key;
     private EditText otp_input;
     private Button main_btn2;
     private Button input_otp_btn;
+
+    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference conditionRef = mRootRef.child("input_otp_unlock");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +65,7 @@ public class MainActivity3 extends AppCompatActivity {
                 boolean check = checkCode(otp_input.getText().toString(), otpkey); //EditText에 입력한 otp 코드와 생성된 otp 코드 비교
                 if(check) {
                     Toast.makeText(getApplicationContext(), "도어락 키패드가 활성화됩니다.", Toast.LENGTH_SHORT).show();
+                    conditionRef.setValue("true");
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "otp 번호를 다시 입력해주세요!", Toast.LENGTH_SHORT).show();
