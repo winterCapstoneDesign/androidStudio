@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateQR"
+    android:background="#FFFFFF"
     android:orientation="vertical"
-    android:background="#B0C4DE">
+    tools:context=".CreateQR">
 
     <ImageView
         android:id="@+id/qrcode"
@@ -14,13 +14,15 @@
 
     <Button
         android:id="@+id/main_button"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
+        android:layout_marginEnd="0dp"
         android:background="@drawable/btn_style"
-        android:text="메인 화면" />
+        android:text="메인 화면"
+        android:textColor="#000000" />
 
 </RelativeLayout>

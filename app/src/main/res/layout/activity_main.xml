@@ -1,64 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="#B0C4DE">
+    tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:src="@drawable/main_img"
-        android:scaleType="centerCrop"/>
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:gravity="center"
-        android:text="Turtle Lock"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:layout_marginTop="60dp"/>
-
-    <TextView
-        android:id="@+id/sub_title"
-        android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:layout_marginBottom="50dp"
-        android:gravity="center"
-        android:text="우리 집 문 지킴이"
-        android:textColor="@color/black"
-        android:textSize="15dp" />
+        android:layout_height="328dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_img" />
 
     <Button
         android:id="@+id/input_password"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Open Door"
-        android:layout_marginBottom="13dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_style"
-        android:layout_gravity="center" />
+        android:text="Open Door"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
-        android:text="Check OTP"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_style"
-        android:layout_gravity="center"/>
+        android:text="Check OTP"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="QR code"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_style"
-        android:layout_gravity="center"/>
+        android:text="QR code"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_style"
+        android:text="Search Log"
+        android:textColor="#251A1A" />
 
 </LinearLayout>
