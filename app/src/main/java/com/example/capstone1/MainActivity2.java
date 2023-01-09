@@ -179,7 +179,7 @@ public class MainActivity2 extends AppCompatActivity {
                     currentValue = 9;
                     break;
                 case R.id.pass_clear:
-                    //onClear();
+                    onClear();
                     break;
                 case R.id.pass_enter:
                     onEnter();
@@ -191,16 +191,19 @@ public class MainActivity2 extends AppCompatActivity {
                 if(etPasscode1.isFocusable()) {
                     etPasscode1.setText(strCurrentValue);
                     etPasscode1.setFocusable(false);
+                    etPasscode2.setFocusable(true);
                     etPasscode2.requestFocus();
                 }
                 else if(etPasscode2.isFocusable()) {
                     etPasscode2.setText(strCurrentValue);
                     etPasscode2.setFocusable(false);
+                    etPasscode3.setFocusable(true);
                     etPasscode3.requestFocus();
                 }
                 else if(etPasscode3.isFocusable()) {
                     etPasscode3.setText(strCurrentValue);
                     etPasscode3.setFocusable(false);
+                    etPasscode4.setFocusable(true);
                     etPasscode4.requestFocus();
                 }
                 else {
@@ -213,28 +216,34 @@ public class MainActivity2 extends AppCompatActivity {
             }
         }
 
-//        private void onClear() {
-//            etPasscode1.setText("");
-//            etPasscode2.setText("");
-//            etPasscode3.setText("");
-//            etPasscode4.setText("");
-//
-//            if(etPasscode2.isFocusable()) {
-//                etPasscode2.clearFocus();
-//            }
-//            else if(etPasscode3.isFocusable()) {
-//                etPasscode3.clearFocus();
-//            }
-//            else if(etPasscode4.isFocusable()) {
-//                etPasscode4.clearFocus();
-//            }
-//            etPasscode1.requestFocus();
-//        }
+        private void onClear() {
+            etPasscode1.setText("");
+            etPasscode2.setText("");
+            etPasscode3.setText("");
+            etPasscode4.setText("");
+
+            if(etPasscode2.isFocusable()) {
+                etPasscode2.clearFocus();
+            }
+            else if(etPasscode3.isFocusable()) {
+                etPasscode3.clearFocus();
+            }
+            else if(etPasscode4.isFocusable()) {
+                etPasscode4.clearFocus();
+            }
+            etPasscode1.setFocusable(true);
+            etPasscode1.requestFocus();
+        }
 
         private void onEnter() {
             //파이어베이스로 비밀번호 전송
-            Toast.makeText(getApplicationContext(), "비밀번호 입력 완료", Toast.LENGTH_SHORT).show();
-            conditionRef.setValue(password);
+            if(etPasscode1.length() != 0 && etPasscode2.length() != 0 && etPasscode3.length() != 0 && etPasscode4.length() != 0) {
+                Toast.makeText(getApplicationContext(), "비밀번호 입력 완료", Toast.LENGTH_SHORT).show();
+                conditionRef.setValue(password);
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "비밀번호를 입력해주세요!", Toast.LENGTH_SHORT).show();
+            }
         }
     };
 }
