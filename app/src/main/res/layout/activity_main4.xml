@@ -44,4 +44,12 @@
         android:text="Create"
         android:textColor="#090909" />
 
+    <Button
+        android:id="@+id/qr_go_main"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="메인 화면"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/btn_style"
+        android:layout_gravity="center" />
 </LinearLayout>
