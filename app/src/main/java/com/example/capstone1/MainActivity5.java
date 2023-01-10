@@ -58,17 +58,18 @@ public class MainActivity5 extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference().child("QR_lock");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
-            int count = 1;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot logSnapshot : snapshot.getChildren()) {
-                    String str = logSnapshot.child(String.valueOf(count)).getValue(String.class);
-                    count = count + 1;
+                    String str = logSnapshot.getValue(String.class);
+                    String time = str.substring(0,10);
+                    String date = str.substring(11,19);
+                    String log = time + " " + date + " 출입이 확인되었습니다.";
                     if(str == null) {
                         Toast.makeText(MainActivity5.this, "null", Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        arrayList.add(str);
+                        arrayList.add(log);
                     }
                 }
                 adapter.notifyDataSetChanged();
