@@ -26,7 +26,8 @@ public class MainActivity2 extends AppCompatActivity {
     private BiometricPrompt.PromptInfo promptInfo;
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference conditionRef = mRootRef.child("input_password");
+    DatabaseReference conditionRef = mRootRef.child("input_password"); //앱에서 비밀번호 입력
+    DatabaseReference conditionRef2 = mRootRef.child("toESP_unlock"); //지문 인식 성공하면 도어락 잠금 해제
 
     private Button pass_btn0;
     private Button pass_btn1;
@@ -119,6 +120,7 @@ public class MainActivity2 extends AppCompatActivity {
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
                 Toast.makeText(getApplicationContext(), "성공했습니다.", Toast.LENGTH_SHORT).show();
+                conditionRef2.setValue("true");
             }
 
             @Override
