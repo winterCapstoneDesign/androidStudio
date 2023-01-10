@@ -17,7 +17,8 @@
         android:gravity="center"
         android:text="Check Your Log"
         android:textColor="@color/black"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:fontFamily="@font/leferipointwhiteoblique"/>
 
     <ListView
         android:id="@+id/lv_LogList"

@@ -6,5 +6,7 @@
     android:padding="10dip"
     android:textSize="16dip"
     android:textStyle="bold"
-    android:textColor="@color/black">
+    android:textColor="@color/black"
+    android:fontFamily="@font/kyobohandwriting2021sjy"
+    android:drawableLeft="@drawable/south">
 </TextView>

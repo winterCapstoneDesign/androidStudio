@@ -24,7 +24,8 @@
             android:gravity="center"
             android:text="Check your OTP Key"
             android:textColor="@color/black"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:fontFamily="@font/leferipointwhiteoblique"/>
 
         <TextView
             android:id="@+id/otp_key"
@@ -43,9 +44,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Authenticator 앱에 해당 키를 입력하여 생성된 OTP 코드를 확인한 후 아래에 OTP 번호를 입력해주세요!"
+            android:text="Authenticator 또는 Google OTP 앱에 해당 키를 입력하여 생성된 OTP 코드를 확인한 후 아래에 OTP 번호를 입력해주세요!"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:fontFamily="@font/kyobohandwriting2021sjy"/>
 
         <EditText
             android:id="@+id/otp_input"
