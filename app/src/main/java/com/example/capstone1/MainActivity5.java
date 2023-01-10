@@ -35,7 +35,6 @@ public class MainActivity5 extends AppCompatActivity {
 
     ListView listView;
     Button goMainbtn;
-    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,18 +51,25 @@ public class MainActivity5 extends AppCompatActivity {
         });
 
         listView = findViewById(R.id.lv_LogList);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
+        adapter = new ArrayAdapter<String>(this, R.layout.log_item_layout, arrayList);
         listView.setAdapter(adapter);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("QR_lock");
 
-        databaseReference.child("date").addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            int count = 1;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot logSnapshot : snapshot.getChildren()) {
-                    String str = logSnapshot.child("1").getValue(String.class);
-                    arrayList.add(str);
+                    String str = logSnapshot.child(String.valueOf(count)).getValue(String.class);
+                    count = count + 1;
+                    if(str == null) {
+                        Toast.makeText(MainActivity5.this, "null", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        arrayList.add(str);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
