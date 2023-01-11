@@ -50,7 +50,7 @@ public class CreateQR extends AppCompatActivity {
             //파이어베이스로 QR 정보 전송
             String user = "user" + Integer.toString(count.count);
             count.count = count.count + 1;
-            databaseReference.child("QR_code").child(user).setValue(text);
+            databaseReference.child("qr_info").child(user).setValue(text);
         }catch (Exception e){}
 
         main_btn = findViewById(R.id.main_button);

@@ -27,7 +27,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference conditionRef = mRootRef.child("input_password"); //앱에서 비밀번호 입력
-    DatabaseReference conditionRef2 = mRootRef.child("toESP_unlock"); //지문 인식 성공하면 도어락 잠금 해제
+    DatabaseReference conditionRef2 = mRootRef.child("check_qr"); //지문 인식 성공하면 도어락 잠금 해제
 
     private Button pass_btn0;
     private Button pass_btn1;

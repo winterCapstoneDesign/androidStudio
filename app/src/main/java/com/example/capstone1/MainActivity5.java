@@ -55,7 +55,7 @@ public class MainActivity5 extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("QR_lock");
+        databaseReference = firebaseDatabase.getReference().child("lock_log");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

@@ -33,7 +33,7 @@ public class MainActivity3 extends AppCompatActivity {
     private Button input_otp_btn;
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference conditionRef = mRootRef.child("input_otp_unlock");
+    DatabaseReference conditionRef = mRootRef.child("check_otp");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
