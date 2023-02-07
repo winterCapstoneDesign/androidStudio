@@ -27,3 +27,6 @@
 ### 데이터베이스
 파이어베이스 사용
 - NoSQL 개념 학습 필요
+
+### 기술스택
+<img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white">  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
